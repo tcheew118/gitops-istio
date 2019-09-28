@@ -1,0 +1,17 @@
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: flagger
+  namespace: istio-system
+  annotations:
+    flux.weave.works/automated: "false"
+    flux.weave.works/tag.chart-image: semver:~0
+spec:
+  releaseName: flagger
+  chart:
+    repository: https://flagger.app
+    name: flagger
+    version: 0.18.1
+  values:
+    msteams:
+      url: https://outlook.office.com/webhook/1f3574f9-0a7c-4f06-a36c-f339fe6b659a@1a72065f-d3a4-4c42-a567-15270b03821e/IncomingWebhook/1de36c304b134f4c944cd21b3f7fa3b3/12c52bac-4667-4043-b35d-3edbde1907e6
