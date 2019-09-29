@@ -36,21 +36,15 @@ spec:
     # max number of failed metric checks before rollback
     threshold: 10
     # total number of iterations
-    # iterations: 10
-    # max traffic percentage routed to canary
-    # percentage (0-100)
-    maxWeight: 50
-    # canary increment step
-    # percentage (0-100)
-    stepWeight: 5
+    iterations: 10
     # canary match condition
-    # match:
-    #   - headers:
-    #       user-agent:
-    #         regex: "^(?!.*Chrome)(?=.*\bSafari\b).*$"
-    #   - headers:
-    #       cookie:
-    #         regex: "^(.*?;)?(type=insider)(;.*)?$"
+    match:
+      - headers:
+          user-agent:
+            regex: "^(?!.*Chrome)(?=.*\bSafari\b).*$"
+      - headers:
+          cookie:
+            regex: "^(.*?;)?(type=insider)(;.*)?$"
     metrics:
     - name: request-success-rate
       # minimum req success rate (non 5xx responses)
